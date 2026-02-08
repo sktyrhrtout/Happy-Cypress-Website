@@ -388,7 +388,7 @@
                         <!-- French Door -->
                         <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
                             <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
-                                <img src="images/vector_library/2026-02-08-french-door-v1.png" alt="French Door" class="max-h-full w-auto">
+                                <img src="images/vector_library/2026-02-08-french-door-v2.png" alt="French Door" class="max-h-full w-auto">
                             </div>
                             <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">French Door</h4>
                             <div class="flex flex-col gap-2 w-full">
@@ -398,7 +398,7 @@
                                     <button onclick="updateCounter('french-doors', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
                                 </div>
                                 <div class="relative">
-                                    <input type="number" id="french-panes-count" oninput="calculateQuote()" placeholder="Pane Count" class="w-full text-center text-xs p-1 border rounded-lg focus:ring-1 focus:ring-teal-500 outline-none" min="0">
+                                    <input type="number" id="french-panes-count" oninput="calculateQuote()" placeholder="Pane Count (8)" class="w-full text-center text-xs p-1 border rounded-lg focus:ring-1 focus:ring-teal-500 outline-none" min="0">
                                 </div>
                             </div>
                         </div>
@@ -607,7 +607,8 @@
             total += counts['sliding-doors'] * 30;
             total += counts['sliding-doors-tri'] * 45;
             total += counts['glass-doors'] * 10;
-            const frenchPaneCount = parseInt(document.getElementById('french-panes-count').value) || 0;
+            const frenchPaneInput = document.getElementById('french-panes-count').value;
+            const frenchPaneCount = frenchPaneInput === '' ? 8 : (parseInt(frenchPaneInput) || 0);
             total += counts['french-doors'] * (frenchPaneCount * 2.25);
             total += counts['picture-windows'] * 10;
             total += counts['casement-windows'] * 12;
