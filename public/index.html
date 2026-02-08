@@ -799,14 +799,35 @@
                 document.getElementById('estimated-total').innerText = `$${estimatedTotal}`;
             }
 
-            // Submit form
-            const form = document.getElementById('submission-form');
-            const data = new FormData(form);
-            fetch(form.action, {
+            // Send to Zapier
+            const webhookUrl = 'https://hooks.zapier.com/hooks/catch/26370953/uete3ma/';
+            
+            // Get debug log for context
+            const breakdown = document.getElementById('debug-work').innerText;
+
+            const payload = {
+                name: document.getElementById('cust-name').value,
+                email: document.getElementById('cust-email').value,
+                phone: document.getElementById('cust-phone').value,
+                address: document.getElementById('cust-address').value,
+                stories: selectedStories,
+                details: details,
+                total: estimatedTotal === -1 ? 'Manual Quote' : `$${estimatedTotal}`,
+                raw_total: estimatedTotal,
+                breakdown: breakdown,
+                timestamp: new Date().toISOString()
+            };
+
+            fetch(webhookUrl, {
                 method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).catch(e => console.error("Submit error", e));
+                body: JSON.stringify(payload),
+                headers: { 'Content-Type': 'application/json' }, // Zapier sometimes prefers simple POST, but JSON is standard for Catch Hook
+                mode: 'no-cors' // Important for client-side to Zapier to avoid CORS errors (opaque response)
+            }).then(() => {
+                console.log('Quote sent to Zapier');
+            }).catch(err => {
+                console.error('Zapier submission failed', err);
+            });
         }
 
         function resetQuote() {
