@@ -8,7 +8,7 @@ When generating new window/door icons for Happy Cypress, use the following style
 - **Colors:** 
   - Frame: White (#FFFFFF) with realistic shading and depth to show frame thickness.
   - Glass: Pale blue/white with subtle diagonal reflection sheen to indicate gloss.
-- **Background:** Transparent (isolated).
+- **Background:** Solid white (#FFFFFF) to match card background. Avoid transparency if it results in checkerboard artifacts.
 - **Details:** Must show frame profile, sash thickness, and hardware (handles/locks) where appropriate.
 - **Reference:** Match the style of high-quality architectural window product renders (like Anderson or Pella catalog images).
 
