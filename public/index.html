@@ -259,23 +259,40 @@
                 <!-- Screen 1: Contact Info -->
                 <div id="quote-screen-1" class="screen-transition space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Name Split -->
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Full Name</label>
-                            <input type="text" id="cust-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John Doe">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">First Name</label>
+                            <input type="text" id="cust-first-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John" autocomplete="given-name">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address</label>
-                            <input type="text" id="cust-address" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="123 Cypress Ave, Monterey CA">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Last Name</label>
+                            <input type="text" id="cust-last-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="Doe" autocomplete="family-name">
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address</label>
+                            <input type="email" id="cust-email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com" autocomplete="email">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number</label>
-                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address</label>
-                            <input type="email" id="cust-email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com">
+                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199" autocomplete="tel">
                         </div>
                     </div>
+
+                    <!-- Address Split -->
+                    <div class="space-y-2 pt-2">
+                        <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address</label>
+                        <input type="text" id="cust-street" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition mb-2" placeholder="Street Address" autocomplete="address-line1">
+                        <div class="grid grid-cols-3 gap-2">
+                            <input type="text" id="cust-city" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="City" autocomplete="address-level2">
+                            <select id="cust-state" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" autocomplete="address-level1">
+                                <option value="CA" selected>CA</option>
+                            </select>
+                            <input type="text" id="cust-zip" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="Zip" autocomplete="postal-code">
+                        </div>
+                    </div>
+
                     <div class="text-center pt-8">
                         <button onclick="nextScreen(2)" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-lg min-w-[200px]">
                             Next: Property Details
@@ -756,11 +773,14 @@
         function showFinalStep() {
             calculateQuote();
             
-            // Fill hidden form
-            document.getElementById('form-name').value = document.getElementById('cust-name').value;
+            // Fill hidden form (Legacy/Backup)
+            const fullName = `${document.getElementById('cust-first-name').value} ${document.getElementById('cust-last-name').value}`.trim();
+            const fullAddress = `${document.getElementById('cust-street').value}, ${document.getElementById('cust-city').value}, ${document.getElementById('cust-state').value} ${document.getElementById('cust-zip').value}`.trim();
+            
+            document.getElementById('form-name').value = fullName;
             document.getElementById('form-email').value = document.getElementById('cust-email').value;
             document.getElementById('form-phone').value = document.getElementById('cust-phone').value;
-            document.getElementById('form-address').value = document.getElementById('cust-address').value;
+            document.getElementById('form-address').value = fullAddress;
             document.getElementById('form-stories').value = selectedStories;
             
             const details = `
@@ -809,10 +829,14 @@
             // Zapier Catch Hooks handle query params reliably
             
             const params = new URLSearchParams({
-                name: document.getElementById('cust-name').value,
+                first_name: document.getElementById('cust-first-name').value,
+                last_name: document.getElementById('cust-last-name').value,
                 email: document.getElementById('cust-email').value,
                 phone: document.getElementById('cust-phone').value,
-                address: document.getElementById('cust-address').value,
+                street: document.getElementById('cust-street').value,
+                city: document.getElementById('cust-city').value,
+                state: document.getElementById('cust-state').value,
+                zip: document.getElementById('cust-zip').value,
                 stories: selectedStories,
                 details: details,
                 total: estimatedTotal === -1 ? 'Manual Quote' : `$${estimatedTotal}`,
