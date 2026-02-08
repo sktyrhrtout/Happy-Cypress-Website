@@ -698,15 +698,19 @@
             // --- ADD-ONS ---
             if (addScreens) {
                 workLog.push("--- SCREENS ($6 ea) ---");
-                // Standard screens
-                let screenCount = counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows'];
-                let screenCost = screenCount * 6;
+                // Standard screens (1 per window)
+                let singleScreenCount = counts['sliders'] + counts['sliders-vertical'] + counts['casement-windows'];
+                // 3-Panel screens (2 per window)
+                let doubleScreenCount = counts['sliders-fixed'] * 2;
+                
+                let totalStandardScreens = singleScreenCount + doubleScreenCount;
+                let screenCost = totalStandardScreens * 6;
                 
                 // Garden screens (2 per window)
                 let gardenScreens = counts['garden-windows'] * 2;
                 let gardenScreenCost = gardenScreens * 6;
 
-                if (screenCount > 0) workLog.push(`Standard: ${screenCount} x $6 = $${screenCost}`);
+                if (totalStandardScreens > 0) workLog.push(`Standard: ${totalStandardScreens} x $6 = $${screenCost}`);
                 if (gardenScreens > 0) workLog.push(`Garden: ${gardenScreens} x $6 = $${gardenScreenCost}`);
                 
                 total += screenCost + gardenScreenCost;
@@ -714,19 +718,22 @@
 
             if (addTracks) {
                 workLog.push("--- TRACKS ---");
-                // Standard tracks ($8)
-                let trackCount = counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows'];
-                let trackCost = trackCount * 8;
+                // Standard tracks ($8) - 3-Panel counts as 2
+                let singleTrackCount = counts['sliders'] + counts['sliders-vertical'] + counts['casement-windows'];
+                let doubleTrackCount = counts['sliders-fixed'] * 2;
+                
+                let totalStandardTracks = singleTrackCount + doubleTrackCount;
+                let trackCost = totalStandardTracks * 8;
                 
                 // Door tracks ($10)
                 let doorTrackCount = counts['sliding-doors'] + counts['sliding-doors-tri'];
                 let doorTrackCost = doorTrackCount * 10;
 
-                // Garden tracks (2 per window, $8 ea)
-                let gardenTracks = counts['garden-windows'] * 2;
+                // Garden tracks (1 per window, $8 ea)
+                let gardenTracks = counts['garden-windows'] * 1;
                 let gardenTrackCost = gardenTracks * 8;
 
-                if (trackCount > 0) workLog.push(`Standard: ${trackCount} x $8 = $${trackCost}`);
+                if (totalStandardTracks > 0) workLog.push(`Standard: ${totalStandardTracks} x $8 = $${trackCost}`);
                 if (doorTrackCount > 0) workLog.push(`Doors: ${doorTrackCount} x $10 = $${doorTrackCost}`);
                 if (gardenTracks > 0) workLog.push(`Garden: ${gardenTracks} x $8 = $${gardenTrackCost}`);
 
