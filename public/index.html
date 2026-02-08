@@ -509,6 +509,14 @@
                         <p class="text-gray-600 max-w-md mx-auto mb-8">
                             We've sent a copy of this estimate to your email. Chad will be in touch shortly to confirm details and schedule your cleaning!
                         </p>
+                        
+                        <!-- Show Work Button -->
+                        <button onclick="toggleWork()" class="text-sm text-gray-500 hover:text-teal-600 underline mb-6">
+                            Show Price Breakdown (Debug)
+                        </button>
+                        <div id="debug-work" class="hidden text-left bg-gray-50 p-4 rounded-xl text-xs font-mono text-gray-700 max-w-sm mx-auto mb-6 border border-gray-200">
+                            <!-- Populated by JS -->
+                        </div>
                     </div>
                     <div id="french-pane-result" class="hidden">
                         <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -598,8 +606,14 @@
             calculateQuote();
         }
 
+        function toggleWork() {
+            const el = document.getElementById('debug-work');
+            el.classList.toggle('hidden');
+        }
+
         function calculateQuote() {
             let total = 0;
+            let workLog = [];
             const hasFrenchPanes = document.getElementById('has-french-panes').checked;
 
             if (hasFrenchPanes) {
@@ -611,50 +625,125 @@
             const addScreens = document.getElementById('add-screens').checked;
             const addTracks = document.getElementById('add-tracks').checked;
             
+            // --- WINDOWS ---
+            workLog.push("--- WINDOWS ---");
+            if (counts['sliders'] > 0) {
+                const sub = counts['sliders'] * 16;
+                total += sub;
+                workLog.push(`Slider: ${counts['sliders']} x $16 = $${sub}`);
+            }
+            if (counts['sliders-vertical'] > 0) {
+                const sub = counts['sliders-vertical'] * 16;
+                total += sub;
+                workLog.push(`Vert Slider: ${counts['sliders-vertical']} x $16 = $${sub}`);
+            }
+            if (counts['sliders-fixed'] > 0) {
+                const sub = counts['sliders-fixed'] * 25;
+                total += sub;
+                workLog.push(`3-Panel: ${counts['sliders-fixed']} x $25 = $${sub}`);
+            }
+            if (counts['sliding-doors'] > 0) {
+                const sub = counts['sliding-doors'] * 30;
+                total += sub;
+                workLog.push(`Slide Door: ${counts['sliding-doors']} x $30 = $${sub}`);
+            }
+            if (counts['sliding-doors-tri'] > 0) {
+                const sub = counts['sliding-doors-tri'] * 45;
+                total += sub;
+                workLog.push(`Tri Door: ${counts['sliding-doors-tri']} x $45 = $${sub}`);
+            }
+            if (counts['glass-doors'] > 0) {
+                const sub = counts['glass-doors'] * 10;
+                total += sub;
+                workLog.push(`Glass Door: ${counts['glass-doors']} x $10 = $${sub}`);
+            }
+            if (counts['picture-windows'] > 0) {
+                const sub = counts['picture-windows'] * 10;
+                total += sub;
+                workLog.push(`Picture: ${counts['picture-windows']} x $10 = $${sub}`);
+            }
+            if (counts['casement-windows'] > 0) {
+                const sub = counts['casement-windows'] * 12;
+                total += sub;
+                workLog.push(`Casement: ${counts['casement-windows']} x $12 = $${sub}`);
+            }
+            if (counts['garden-windows'] > 0) {
+                const sub = counts['garden-windows'] * 35;
+                total += sub;
+                workLog.push(`Garden: ${counts['garden-windows']} x $35 = $${sub}`);
+            }
+            if (counts['french-doors'] > 0) {
+                const frenchPaneInput = document.getElementById('french-panes-count').value;
+                const panes = frenchPaneInput === '' ? 8 : (parseInt(frenchPaneInput) || 0);
+                const sub = counts['french-doors'] * (panes * 2.25);
+                total += sub;
+                workLog.push(`French Door: ${counts['french-doors']} x (${panes} panes x $2.25) = $${sub.toFixed(2)}`);
+            }
+
+            // --- LADDER FEE ---
             const totalWindows = Object.values(counts).reduce((a, b) => a + b, 0);
-
-            // Base prices
-            total += counts['sliders'] * 16;
-            total += counts['sliders-vertical'] * 16;
-            total += counts['sliders-fixed'] * 25;
-            total += counts['sliding-doors'] * 30;
-            total += counts['sliding-doors-tri'] * 45;
-            total += counts['glass-doors'] * 10;
-            const frenchPaneInput = document.getElementById('french-panes-count').value;
-            const frenchPaneCount = frenchPaneInput === '' ? 8 : (parseInt(frenchPaneInput) || 0);
-            total += counts['french-doors'] * (frenchPaneCount * 2.25);
-            total += counts['picture-windows'] * 10;
-            total += counts['garden-windows'] * 35;
-            total += counts['casement-windows'] * 12;
-
-            // Ladder Fee (based on stories)
             if (selectedStories >= 2) {
-                total += Math.floor(totalWindows / 2) * 5;
-            }
-            if (selectedStories === 3) {
-                total += totalWindows * 2; // Extra for 3rd story
+                let fee = 0;
+                if (selectedStories === 2) {
+                    fee = Math.floor(totalWindows / 2) * 5;
+                    workLog.push(`2-Story Fee: ~${Math.floor(totalWindows/2)} windows x $5 = $${fee}`);
+                }
+                if (selectedStories === 3) {
+                    fee = (Math.floor(totalWindows / 2) * 5) + (totalWindows * 2);
+                    workLog.push(`3-Story Fee: (2-Story base $${Math.floor(totalWindows/2)*5}) + (High work $${totalWindows*2}) = $${fee}`);
+                }
+                total += fee;
             }
 
-            // Add-ons
+            // --- ADD-ONS ---
             if (addScreens) {
-                total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 6;
-                // Garden window adds 2 screens
-                total += counts['garden-windows'] * (6 * 2);
+                workLog.push("--- SCREENS ($6 ea) ---");
+                // Standard screens
+                let screenCount = counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows'];
+                let screenCost = screenCount * 6;
+                
+                // Garden screens (2 per window)
+                let gardenScreens = counts['garden-windows'] * 2;
+                let gardenScreenCost = gardenScreens * 6;
+
+                if (screenCount > 0) workLog.push(`Standard: ${screenCount} x $6 = $${screenCost}`);
+                if (gardenScreens > 0) workLog.push(`Garden: ${gardenScreens} x $6 = $${gardenScreenCost}`);
+                
+                total += screenCost + gardenScreenCost;
             }
+
             if (addTracks) {
-                total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 8;
-                total += (counts['sliding-doors'] + counts['sliding-doors-tri']) * 10;
-                // Garden window adds 2 tracks
-                total += counts['garden-windows'] * (8 * 2);
+                workLog.push("--- TRACKS ---");
+                // Standard tracks ($8)
+                let trackCount = counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows'];
+                let trackCost = trackCount * 8;
+                
+                // Door tracks ($10)
+                let doorTrackCount = counts['sliding-doors'] + counts['sliding-doors-tri'];
+                let doorTrackCost = doorTrackCount * 10;
+
+                // Garden tracks (2 per window, $8 ea)
+                let gardenTracks = counts['garden-windows'] * 2;
+                let gardenTrackCost = gardenTracks * 8;
+
+                if (trackCount > 0) workLog.push(`Standard: ${trackCount} x $8 = $${trackCost}`);
+                if (doorTrackCount > 0) workLog.push(`Doors: ${doorTrackCount} x $10 = $${doorTrackCost}`);
+                if (gardenTracks > 0) workLog.push(`Garden: ${gardenTracks} x $8 = $${gardenTrackCost}`);
+
+                total += trackCost + doorTrackCost + gardenTrackCost;
             }
 
             // Apply minimum
             if (total > 0 && total < 250) {
+                workLog.push(`--- MINIMUM ---`);
+                workLog.push(`Subtotal: $${total}`);
+                workLog.push(`Minimum Adjustment: +$${250 - total}`);
                 total = 250;
             }
             
             estimatedTotal = Math.round(total);
             document.getElementById('live-total').innerText = total === 0 ? '$0' : `$${estimatedTotal}`;
+            document.getElementById('debug-work').innerHTML = workLog.join('<br>');
         }
 
         function showFinalStep() {
