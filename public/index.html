@@ -372,16 +372,34 @@
                             </div>
                         </div>
 
-                        <!-- Hinged Door -->
+                        <!-- Glass Door (formerly Hinged Door) -->
                         <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
                             <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
-                                <img src="images/vector_library/2026-02-07-hinged-door-handle.png" alt="Hinged Door" class="max-h-full w-auto">
+                                <img src="images/vector_library/2026-02-07-hinged-door-handle.png" alt="Glass Door" class="max-h-full w-auto">
                             </div>
-                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">Hinged Door</h4>
+                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">Glass Door</h4>
                             <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1 w-full">
                                 <button onclick="updateCounter('glass-doors', -1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">-</button>
                                 <span id="glass-doors-count" class="text-lg font-bold text-gray-900 flex-1 text-center">0</span>
                                 <button onclick="updateCounter('glass-doors', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
+                            </div>
+                        </div>
+
+                        <!-- French Door -->
+                        <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
+                            <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
+                                <img src="images/vector_library/2026-02-08-french-door-v1.png" alt="French Door" class="max-h-full w-auto">
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">French Door</h4>
+                            <div class="flex flex-col gap-2 w-full">
+                                <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1 w-full">
+                                    <button onclick="updateCounter('french-doors', -1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">-</button>
+                                    <span id="french-doors-count" class="text-lg font-bold text-gray-900 flex-1 text-center">0</span>
+                                    <button onclick="updateCounter('french-doors', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
+                                </div>
+                                <div class="relative">
+                                    <input type="number" id="french-panes-count" oninput="calculateQuote()" placeholder="Pane Count" class="w-full text-center text-xs p-1 border rounded-lg focus:ring-1 focus:ring-teal-500 outline-none" min="0">
+                                </div>
                             </div>
                         </div>
 
@@ -514,7 +532,7 @@
         let counts = {
             'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
             'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-            'picture-windows': 0, 'casement-windows': 0
+            'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
         };
 
         function nextScreen(num) {
@@ -589,6 +607,8 @@
             total += counts['sliding-doors'] * 30;
             total += counts['sliding-doors-tri'] * 45;
             total += counts['glass-doors'] * 10;
+            const frenchPaneCount = parseInt(document.getElementById('french-panes-count').value) || 0;
+            total += counts['french-doors'] * (frenchPaneCount * 2.25);
             total += counts['picture-windows'] * 10;
             total += counts['casement-windows'] * 12;
 
@@ -634,7 +654,8 @@
                 3-Panel Slider: ${counts['sliders-fixed']}
                 Sliding Doors (Dual): ${counts['sliding-doors']}
                 Sliding Doors (Tri): ${counts['sliding-doors-tri']}
-                Hinged Doors: ${counts['glass-doors']}
+                Glass Doors: ${counts['glass-doors']}
+                French Doors: ${counts['french-doors']} (Panes: ${document.getElementById('french-panes-count').value})
                 Picture Windows: ${counts['picture-windows']}
                 Casement Windows: ${counts['casement-windows']}
                 ---
@@ -676,12 +697,13 @@
             counts = {
                 'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
                 'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-                'picture-windows': 0, 'casement-windows': 0
+                'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
             };
             Object.keys(counts).forEach(k => {
                 const el = document.getElementById(`${k}-count`);
                 if (el) el.innerText = 0;
             });
+            document.getElementById('french-panes-count').value = '';
             document.getElementById('add-screens').checked = false;
             document.getElementById('add-tracks').checked = false;
             document.getElementById('has-french-panes').checked = false;
