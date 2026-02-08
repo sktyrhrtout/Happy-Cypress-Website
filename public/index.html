@@ -805,7 +805,10 @@
             // Get debug log for context
             const breakdown = document.getElementById('debug-work').innerText;
 
-            const payload = {
+            // Send to Zapier via URL params (Beacon/GET) to ensure data visibility despite CORS
+            // Zapier Catch Hooks handle query params reliably
+            
+            const params = new URLSearchParams({
                 name: document.getElementById('cust-name').value,
                 email: document.getElementById('cust-email').value,
                 phone: document.getElementById('cust-phone').value,
@@ -816,13 +819,15 @@
                 raw_total: estimatedTotal,
                 breakdown: breakdown,
                 timestamp: new Date().toISOString()
-            };
+            });
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                body: JSON.stringify(payload),
-                headers: { 'Content-Type': 'application/json' }, // Zapier sometimes prefers simple POST, but JSON is standard for Catch Hook
-                mode: 'no-cors' // Important for client-side to Zapier to avoid CORS errors (opaque response)
+            // Use sendBeacon for reliability on page unload, or fetch no-cors
+            // Appending params to URL ensures Zapier sees them in 'querystring'
+            const finalUrl = `${webhookUrl}?${params.toString()}`;
+            
+            fetch(finalUrl, {
+                method: 'POST', // POST to trigger the hook, data in query params
+                mode: 'no-cors'
             }).then(() => {
                 console.log('Quote sent to Zapier');
             }).catch(err => {
