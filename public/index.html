@@ -415,6 +415,19 @@
                                 <button onclick="updateCounter('picture-windows', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
                             </div>
                         </div>
+
+                        <!-- Garden Window -->
+                        <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
+                            <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
+                                <img src="images/vector_library/2026-02-08-garden-window-v1.png" alt="Garden Window" class="max-h-full w-auto">
+                            </div>
+                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">Garden Window</h4>
+                            <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1 w-full">
+                                <button onclick="updateCounter('garden-windows', -1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">-</button>
+                                <span id="garden-windows-count" class="text-lg font-bold text-gray-900 flex-1 text-center">0</span>
+                                <button onclick="updateCounter('garden-windows', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Live Total Floating Bar (Internal) -->
@@ -532,7 +545,7 @@
         let counts = {
             'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
             'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-            'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
+            'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
         };
 
         function nextScreen(num) {
@@ -611,6 +624,7 @@
             const frenchPaneCount = frenchPaneInput === '' ? 8 : (parseInt(frenchPaneInput) || 0);
             total += counts['french-doors'] * (frenchPaneCount * 2.25);
             total += counts['picture-windows'] * 10;
+            total += counts['garden-windows'] * 35;
             total += counts['casement-windows'] * 12;
 
             // Ladder Fee (based on stories)
@@ -624,10 +638,14 @@
             // Add-ons
             if (addScreens) {
                 total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 6;
+                // Garden window adds 2 screens
+                total += counts['garden-windows'] * (6 * 2);
             }
             if (addTracks) {
                 total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 8;
                 total += (counts['sliding-doors'] + counts['sliding-doors-tri']) * 10;
+                // Garden window adds 2 tracks
+                total += counts['garden-windows'] * (8 * 2);
             }
 
             // Apply minimum
@@ -658,6 +676,7 @@
                 Glass Doors: ${counts['glass-doors']}
                 French Doors: ${counts['french-doors']} (Panes: ${document.getElementById('french-panes-count').value})
                 Picture Windows: ${counts['picture-windows']}
+                Garden Windows: ${counts['garden-windows']}
                 Casement Windows: ${counts['casement-windows']}
                 ---
                 Screens Washed: ${document.getElementById('add-screens').checked}
@@ -698,7 +717,7 @@
             counts = {
                 'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
                 'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-                'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
+                'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
             };
             Object.keys(counts).forEach(k => {
                 const el = document.getElementById(`${k}-count`);
