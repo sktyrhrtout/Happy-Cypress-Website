@@ -3,31 +3,31 @@
 When generating new window/door icons for Happy Cypress, use the following style guide and prompt structure to ensure consistency.
 
 ## Style Guide
-- **Style:** Flat, minimalist vector icon.
-- **Perspective:** Front-facing, 2D (orthographic).
+- **Style:** Realistic 3D product illustration (not flat vector).
+- **Perspective:** Front-facing, orthographic but with depth.
 - **Colors:** 
-  - Frame: White (#FFFFFF) or very light gray (#F3F4F6) with subtle gray stroke (#D1D5DB).
-  - Glass: Light blue gradient/solid (#BFDBFE or #DBEAFE) to represent glass.
-- **Background:** Pure white (#FFFFFF) or transparent.
-- **Lines:** Clean, thin gray outlines. No drop shadows or complex 3D effects.
-- **Handles:** Simple, modern, metallic gray or silver handle (if applicable).
+  - Frame: White (#FFFFFF) with realistic shading and depth to show frame thickness.
+  - Glass: Pale blue/white with subtle diagonal reflection sheen to indicate gloss.
+- **Background:** Transparent (isolated).
+- **Details:** Must show frame profile, sash thickness, and hardware (handles/locks) where appropriate.
+- **Reference:** Match the style of high-quality architectural window product renders (like Anderson or Pella catalog images).
 
 ## Prompt Template
 
 ```text
-A flat vector icon of a [WINDOW_TYPE], front view. 
-Style: Minimalist UI icon, clean lines, flat design.
-Frame: White or very light gray with thin gray outline.
-Glass: Light blue (#DBEAFE) rectangular panes, [PANE_CONFIGURATION].
-Details: [SPECIFIC_DETAILS, e.g., "Single silver handle on the left side"].
-Background: Pure white, no shadow.
-Reference style: Matches a modern window cleaning company website.
+A realistic vector illustration of a [WINDOW_TYPE], front view.
+Style: 3D realistic product icon, white frame with depth and soft shadows.
+Glass: Very pale blue/white with subtle diagonal reflection sheen.
+Frame: Detailed white frame profile, showing depth and thickness.
+Details: [SPECIFIC_DETAILS, e.g., "Silver lever handle", "Two sliding sashes"].
+Background: Isolated on transparent/white background.
+Vibe: High-end architectural product render, clean and modern. Not cartoony.
 ```
 
 ## Example Prompts
 
 **French Door (Single):**
-"A flat vector icon of a single French door. White frame, 2 columns x 4 rows of light blue glass panes. Simple silver lever handle on the right. Minimalist style, white background."
+"A realistic illustration of a single white French door. 8 glass panes (2x4 grid) with subtle reflections. White frame with depth. Silver lever handle on the right. Isolated on transparent background."
 
 **Sliding Window:**
-"A flat vector icon of a horizontal sliding window. White frame, split into two light blue glass panes. One pane slightly overlapping the other. Minimalist style, white background."
+"A realistic illustration of a white horizontal sliding window. Two sashes, one slightly overlapping the other to show depth. Pale blue glass with diagonal sheen. White vinyl frame details. Isolated."
