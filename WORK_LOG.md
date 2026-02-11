@@ -6,3 +6,9 @@
 - **Integrate AI Chatbot**: Implemented backend FAQ logic in `server.js` and added a functional Chatbot UI to `index.html`. Verified with curl. (Completed by Sub-Agent)
 - **Refine Quote Form UI & Icons**: Expanded window types to include Vertical Sliders and 3-Panel Sliding Doors. Updated UI with a 4-column grid, added a "Live Total" summary, and implemented smooth screen transitions. Refined icon paths to use latest vector assets. (Completed by Sub-Agent)
 - **Update Window Icons (3-Panel & Picture)**: Updated 3-Panel Slider and Picture Window icons in the quote form and services section to use the latest single-pane and fixed-panel vector assets (`2026-02-07-3-panel-slider-fixed.png` and `2026-02-07-picture-window-single-pane.png`). (Completed by Sub-Agent)
+
+## 2026-02-08
+- **Research Verified Address Autocomplete**: Researched best address autocomplete options (Google, Smarty, Radar, Mapbox, Lob). Provided pricing, pros, and cons. Updated Trello card #50 and moved to Chad Review. (Completed by Sub-Agent)
+
+## 2026-02-09
+- **Recommend a new host to migrate the Wix website to**: Researched hosting alternatives for the custom Node.js/static site. Recommended Vercel (Free/Hobby tier) for cost and performance, with Render as an alternative. Created `HOSTING_RECOMMENDATIONS.md` with detailed comparison. Moved card #51 to Chad Review. (Completed by Sub-Agent)

@@ -1,4 +1,4 @@
-const express = require('../../receipts_app/node_modules/express');
+const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3002; // Avoiding 3000 (Receipts) and 3001 (Trello)

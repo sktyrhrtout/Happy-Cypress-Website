@@ -71,9 +71,116 @@
             opacity: 0;
             transform: translateY(10px);
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Modal for Large Homes / French Panes -->
+    <div id="pre-qualify-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-600">
+                <i class="fas fa-home text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Before we start...</h2>
+            <p class="text-gray-600 mb-6">Does your home meet any of these criteria?</p>
+            
+            <div class="text-left space-y-3 mb-8">
+                <label class="flex items-start gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                    <input type="checkbox" id="check-french-panes" class="mt-1 w-5 h-5 text-teal-600 rounded border-gray-300 focus:ring-teal-500">
+                    <div>
+                        <span class="font-bold text-gray-800 block">Majority French Panes (Grids)</span>
+                        <span class="text-xs text-gray-500">Windows with many small individual glass squares.</span>
+                    </div>
+                </label>
+                <label class="flex items-start gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                    <input type="checkbox" id="check-large-home" class="mt-1 w-5 h-5 text-teal-600 rounded border-gray-300 focus:ring-teal-500">
+                    <div>
+                        <span class="font-bold text-gray-800 block">Over 3,000 Sq. Ft. or 3+ Stories</span>
+                        <span class="text-xs text-gray-500">Large estates or complex high-access homes.</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <button onclick="handlePreQualify()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg">
+                    Continue
+                </button>
+            </div>
+            
+            <!-- Hidden redirect message -->
+            <div id="redirect-message" class="hidden mt-6 pt-6 border-t border-gray-100">
+                <p class="text-gray-700 font-semibold mb-4">
+                    For homes like yours, we recommend a 
+                    <span class="text-teal-600">free in-person estimate</span> to ensure accuracy.
+                </p>
+                <a href="https://housecallpro.com/book/HappyCypress" target="_blank" class="block w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg text-center">
+                    Book In-Person Estimate
+                </a>
+                <button onclick="closeModal()" class="mt-3 text-sm text-gray-400 hover:text-gray-600 underline">
+                    Continue to Quote anyway
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
@@ -89,9 +196,9 @@
                     <a href="#services" class="text-gray-600 hover:text-teal-600 font-semibold transition">Services</a>
                     <a href="#reviews" class="text-gray-600 hover:text-teal-600 font-semibold transition">Reviews</a>
                     <a href="#about" class="text-gray-600 hover:text-teal-600 font-semibold transition">About</a>
-                    <a href="#quote" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all">
+                    <button onclick="openQuote()" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all">
                         Get an Instant Quote
-                    </a>
+                    </button>
                 </div>
                 <!-- Mobile menu button placeholder -->
                 <div class="md:hidden flex items-center">
@@ -115,9 +222,9 @@
                 <span class="font-semibold text-white block mt-2">100% Satisfaction Guaranteed.</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#quote" class="bg-teal-500 hover:bg-teal-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all ring-4 ring-teal-500/30">
+                <button onclick="openQuote()" class="bg-teal-500 hover:bg-teal-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all ring-4 ring-teal-500/30">
                     Get an Instant Quote
-                </a>
+                </button>
                 <a href="tel:+18315550199" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all">
                     <i class="fas fa-phone-alt mr-2 text-teal-600"></i> Call Now
                 </a>
@@ -258,46 +365,48 @@
 
                 <!-- Screen 1: Contact Info -->
                 <div id="quote-screen-1" class="screen-transition space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Name Split -->
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">First Name</label>
-                            <input type="text" id="cust-first-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John" autocomplete="given-name">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Last Name</label>
-                            <input type="text" id="cust-last-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="Doe" autocomplete="family-name">
+                    <form id="contact-form" onsubmit="event.preventDefault(); validateContact();">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Name Split -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">First Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="cust-first-name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John" autocomplete="given-name">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Last Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="cust-last-name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="Doe" autocomplete="family-name">
+                            </div>
+
+                            <!-- Contact -->
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="cust-email" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com" autocomplete="email">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="cust-phone" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199" autocomplete="tel">
+                            </div>
                         </div>
 
-                        <!-- Contact -->
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address</label>
-                            <input type="email" id="cust-email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com" autocomplete="email">
+                        <!-- Address Split -->
+                        <div class="space-y-2 pt-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address <span class="text-red-500">*</span></label>
+                            <input type="text" id="cust-street" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition mb-2" placeholder="Street Address" autocomplete="address-line1">
+                            <div class="grid grid-cols-3 gap-2">
+                                <input type="text" id="cust-city" required class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="City" autocomplete="address-level2">
+                                <select id="cust-state" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" autocomplete="address-level1">
+                                    <option value="CA" selected>CA</option>
+                                </select>
+                                <input type="text" id="cust-zip" required class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="Zip" autocomplete="postal-code">
+                            </div>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number</label>
-                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199" autocomplete="tel">
-                        </div>
-                    </div>
 
-                    <!-- Address Split -->
-                    <div class="space-y-2 pt-2">
-                        <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address</label>
-                        <input type="text" id="cust-street" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition mb-2" placeholder="Street Address" autocomplete="address-line1">
-                        <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="cust-city" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="City" autocomplete="address-level2">
-                            <select id="cust-state" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" autocomplete="address-level1">
-                                <option value="CA" selected>CA</option>
-                            </select>
-                            <input type="text" id="cust-zip" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="Zip" autocomplete="postal-code">
+                        <div class="text-center pt-8">
+                            <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-lg min-w-[200px]">
+                                Next: Property Details
+                            </button>
                         </div>
-                    </div>
-
-                    <div class="text-center pt-8">
-                        <button onclick="nextScreen(2)" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-lg min-w-[200px]">
-                            Next: Property Details
-                        </button>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Screen 2: Property Details (Stories) -->
@@ -489,16 +598,6 @@
                                 <span class="text-gray-500 text-sm">Vacuuming and detailing of all window tracks.</span>
                             </div>
                         </label>
-                        <label class="group flex items-center gap-4 p-5 border-2 border-red-50 rounded-2xl cursor-pointer hover:border-red-500 hover:bg-red-50 transition-all">
-                            <div class="w-6 h-6 rounded border-2 border-gray-300 group-hover:border-red-500 flex items-center justify-center transition-colors bg-white">
-                                <input id="has-french-panes" type="checkbox" class="hidden">
-                                <i class="fas fa-check text-xs text-red-600 opacity-0 transition-opacity"></i>
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-red-700 font-bold block">I have French Panes (Grids)</span>
-                                <span class="text-red-500 text-sm italic">Requires on-site estimate.</span>
-                            </div>
-                        </label>
                     </div>
 
                     <style>
@@ -535,15 +634,6 @@
                             <!-- Populated by JS -->
                         </div>
                     </div>
-                    <div id="french-pane-result" class="hidden">
-                        <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-info-circle text-4xl"></i>
-                        </div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Manual Quote Required</h2>
-                        <p class="text-gray-600 max-w-md mx-auto mb-8">
-                            Because you have French panes, we need to provide a custom, on-site estimate to ensure the most accurate pricing. We'll be in touch shortly!
-                        </p>
-                    </div>
                     <button onclick="resetQuote()" class="text-teal-600 font-bold hover:underline">
                         <i class="fas fa-redo mr-2"></i> Start Over
                     </button>
@@ -572,6 +662,44 @@
             'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
             'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
         };
+
+        // --- Modal & Flow Logic ---
+
+        function openQuote() {
+            // Scroll to section
+            document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+            // Show modal first
+            setTimeout(() => {
+                const modal = document.getElementById('pre-qualify-modal');
+                modal.classList.add('show');
+            }, 500);
+        }
+
+        function closeModal() {
+            document.getElementById('pre-qualify-modal').classList.remove('show');
+        }
+
+        function handlePreQualify() {
+            const isFrench = document.getElementById('check-french-panes').checked;
+            const isLarge = document.getElementById('check-large-home').checked;
+
+            if (isFrench || isLarge) {
+                // Show redirect message inside modal
+                document.getElementById('redirect-message').classList.remove('hidden');
+                // Hide main continue button to force decision
+                document.querySelector('#pre-qualify-modal button[onclick="handlePreQualify()"]').classList.add('hidden');
+            } else {
+                // Good to go
+                closeModal();
+            }
+        }
+
+        function validateContact() {
+            // If valid (handled by browser 'required' attribs), go next
+            nextScreen(2);
+        }
+
+        // --- Existing Navigation Logic ---
 
         function nextScreen(num) {
             // Hide all screens immediately to prevent overlap/flashing
@@ -631,13 +759,7 @@
         function calculateQuote() {
             let total = 0;
             let workLog = [];
-            const hasFrenchPanes = document.getElementById('has-french-panes').checked;
-
-            if (hasFrenchPanes) {
-                estimatedTotal = -1;
-                document.getElementById('live-total').innerText = 'Manual Quote';
-                return;
-            }
+            // Removed internal French pane check as it's now handled by modal pre-check
 
             const addScreens = document.getElementById('add-screens').checked;
             const addTracks = document.getElementById('add-tracks').checked;
@@ -798,196 +920,36 @@
                 Screens Washed: ${document.getElementById('add-screens').checked}
                 Tracks Cleaned: ${document.getElementById('add-tracks').checked}
             `.trim().replace(/^ +/gm, '');
+            
             document.getElementById('form-details').value = details;
-            document.getElementById('form-total').value = estimatedTotal === -1 ? 'French Panes (Manual)' : `$${estimatedTotal}`;
+            document.getElementById('form-total').value = estimatedTotal;
 
-            // Hide UI steps
-            document.getElementById('quote-screen-4').style.display = 'none';
-            const dot4 = document.getElementById('step-dot-4');
-            if (dot4) dot4.classList.add('completed');
+            // Submit logic handled later by Zapier integration
             
-            const finalScreen = document.getElementById('quote-screen-final');
-            finalScreen.style.display = 'block';
-            setTimeout(() => finalScreen.classList.remove('hidden-screen'), 10);
-
-            if (estimatedTotal === -1) {
-                document.getElementById('price-result').classList.add('hidden');
-                document.getElementById('french-pane-result').classList.remove('hidden');
-            } else {
-                document.getElementById('price-result').classList.remove('hidden');
-                document.getElementById('french-pane-result').classList.add('hidden');
-                document.getElementById('estimated-total').innerText = `$${estimatedTotal}`;
-            }
-
-            // Send to Zapier
-            const webhookUrl = 'https://hooks.zapier.com/hooks/catch/26370953/uete3ma/';
-            
-            // Get debug log for context
-            const breakdown = document.getElementById('debug-work').innerText;
-
-            // Send to Zapier via URL params (Beacon/GET) to ensure data visibility despite CORS
-            // Zapier Catch Hooks handle query params reliably
-            
-            const params = new URLSearchParams({
-                first_name: document.getElementById('cust-first-name').value,
-                last_name: document.getElementById('cust-last-name').value,
-                email: document.getElementById('cust-email').value,
-                phone: document.getElementById('cust-phone').value,
-                street: document.getElementById('cust-street').value,
-                city: document.getElementById('cust-city').value,
-                state: document.getElementById('cust-state').value,
-                zip: document.getElementById('cust-zip').value,
-                stories: selectedStories,
-                details: details,
-                total: estimatedTotal === -1 ? 'Manual Quote' : `$${estimatedTotal}`,
-                raw_total: estimatedTotal,
-                breakdown: breakdown,
-                timestamp: new Date().toISOString()
-            });
-
-            // Use sendBeacon for reliability on page unload, or fetch no-cors
-            // Appending params to URL ensures Zapier sees them in 'querystring'
-            const finalUrl = `${webhookUrl}?${params.toString()}`;
-            
-            fetch(finalUrl, {
-                method: 'POST', // POST to trigger the hook, data in query params
-                mode: 'no-cors'
-            }).then(() => {
-                console.log('Quote sent to Zapier');
-            }).catch(err => {
-                console.error('Zapier submission failed', err);
-            });
+            nextScreen('final');
         }
 
         function resetQuote() {
+            // Reset state
+            selectedStories = 0;
+            estimatedTotal = 0;
             counts = {
                 'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
                 'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
                 'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
             };
-            Object.keys(counts).forEach(k => {
-                const el = document.getElementById(`${k}-count`);
-                if (el) el.innerText = 0;
-            });
-            document.getElementById('french-panes-count').value = '';
+            
+            // Reset inputs
+            document.getElementById('contact-form').reset();
             document.getElementById('add-screens').checked = false;
             document.getElementById('add-tracks').checked = false;
-            document.getElementById('has-french-panes').checked = false;
-            selectedStories = 0;
-            document.querySelectorAll('.story-btn').forEach(btn => btn.classList.remove('border-teal-500', 'bg-teal-50'));
-            const btnNext2 = document.getElementById('btn-next-2');
-            if (btnNext2) btnNext2.disabled = true;
-            document.getElementById('live-total').innerText = '$0';
+            document.querySelectorAll('[id$="-count"]').forEach(el => el.innerText = '0');
+            document.querySelectorAll('.story-btn').forEach(btn => {
+                btn.classList.remove('border-teal-500', 'bg-teal-50');
+            });
+
             nextScreen(1);
         }
-
-        // Chatbot Functionality
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatWindow = document.getElementById('chat-window');
-        const chatClose = document.getElementById('chat-close');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-
-        if (chatToggle) {
-            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
-            chatClose.onclick = () => chatWindow.classList.add('hidden');
-
-            chatForm.onsubmit = async (e) => {
-                e.preventDefault();
-                const text = chatInput.value.trim();
-                if (!text) return;
-
-                addMessage(text, 'user');
-                chatInput.value = '';
-
-                try {
-                    const response = await fetch('/api/chat', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: text })
-                    });
-                    const data = await response.json();
-                    addMessage(data.reply, 'bot');
-                } catch (err) {
-                    addMessage("Sorry, I'm having trouble connecting. Please call us!", 'bot');
-                }
-            };
-        }
-
-        function addMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = sender === 'user' 
-                ? "bg-blue-600 text-white p-2 rounded-lg rounded-tr-none text-sm max-w-[80%] ml-auto"
-                : "bg-teal-100 text-teal-900 p-2 rounded-lg rounded-tl-none text-sm max-w-[80%]";
-            div.innerText = text;
-            chatMessages.appendChild(div);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
     </script>
-    
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/3 text-center">
-                    <img src="images/chad-headshot.jpg" alt="Chad Gile, Owner" class="rounded-full w-48 h-48 mx-auto shadow-2xl border-4 border-white">
-                    <h3 class="text-2xl font-bold mt-6 text-gray-900">Chad Gile</h3>
-                    <p class="text-gray-500 font-semibold">Owner, Happy Cypress</p>
-                </div>
-                <div class="md:w-2/3">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Your Home is My Reputation.</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        At Happy Cypress, you're not dealing with a faceless corporation. I'm Chad, the owner and operator. When you call, you get me. When I arrive at your home, you get my full attention and commitment to quality.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        I started this business because I love seeing the instant transformation that clean windows bring to a home. I take immense pride in my craft and stand behind every single job with a 100% satisfaction guarantee. That's a promise from me to you.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="brand-font text-2xl font-bold tracking-tight mb-4">
-                <img src="images/logo.png" class="h-16 w-auto mx-auto mb-4" alt="Happy Cypress Logo">
-                HAPPY CYPRESS
-            </div>
-            <p class="text-gray-400 mb-6">Proudly serving Salinas, Monterey, and all of Monterey County.</p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="https://www.yelp.com/biz/happy-cypress-window-cleaning-marina" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-yelp"></i></a>
-                <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-google"></i></a>
-            </div>
-            <p class="text-gray-500 text-sm">&copy; 2025 Happy Cypress Window Cleaning. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Chatbot UI -->
-    <div id="chat-widget" class="fixed bottom-6 right-6 z-[100]">
-        <button id="chat-toggle" class="bg-teal-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-teal-700 transition-all transform hover:scale-110">
-            <i class="fas fa-comments text-2xl"></i>
-        </button>
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col">
-            <div class="bg-teal-600 p-4 text-white font-bold flex justify-between items-center">
-                <span>Happy Cypress Chat</span>
-                <button id="chat-close" class="text-teal-200 hover:text-white"><i class="fas fa-times"></i></button>
-            </div>
-            <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3 bg-gray-50">
-                <div class="bg-teal-100 text-teal-900 p-2 rounded-lg rounded-tl-none text-sm max-w-[80%]">
-                    Hi! Have a question about our window cleaning services? Ask away!
-                </div>
-            </div>
-            <div class="p-4 border-t">
-                <form id="chat-form" class="flex gap-2">
-                    <input type="text" id="chat-input" class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-teal-500" placeholder="Type a message...">
-                    <button type="submit" class="bg-teal-600 text-white p-2 rounded-lg hover:bg-teal-700"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

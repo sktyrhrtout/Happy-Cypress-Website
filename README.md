@@ -1,22 +1,21 @@
-# Happy Cypress Setup
+# Happy Cypress Window Cleaning
 
-## 1. Start the Server
-Run the local Node.js server on port 3002:
-```bash
-cd projects/happy-cypress
-node server.js
-```
+**Live Site:** [https://happy-cypress-website.vercel.app](https://happy-cypress-website.vercel.app)
+**GitHub Repo:** [https://github.com/sktyrhrtout/Happy-Cypress-Website](https://github.com/sktyrhrtout/Happy-Cypress-Website)
 
-## 2. Start the Tunnel
-Expose the server to the internet using `localtunnel`:
-```bash
-lt --port 3002 --subdomain happy-cypress
-```
-**URL:** https://happy-cypress.loca.lt
+## Development
 
-## 3. Tunnel Password
-The tunnel requires a password (your public IP) to access the page.
-Get it by running:
-```bash
-curl -s https://loca.lt/mytunnelpassword
-```
+1.  **Start Local Server:**
+    ```bash
+    cd projects/happy-cypress
+    npm start
+    ```
+    Access at: `http://localhost:3002`
+
+2.  **Deploy:**
+    Changes pushed to `main` branch on GitHub automatically trigger a deployment on Vercel.
+
+## Features
+- Instant Quote Calculator based on window type/count.
+- Contact form integration (currently Formspree, moving to Zapier).
+- Responsive design.
