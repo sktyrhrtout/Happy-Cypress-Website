@@ -3,7 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Cypress Window Cleaning | Monterey & Salinas</title>
+
+    <!-- Primary SEO -->
+    <title>Window Cleaning in Monterey & Salinas | Happy Cypress Window Cleaners</title>
+    <meta name="description" content="Professional residential window cleaning in Monterey County, CA. Family-owned, 5-star rated, 100% satisfaction guaranteed. Serving Salinas, Monterey, Carmel, Pacific Grove & Marina. Get an instant quote.">
+    <meta name="keywords" content="window cleaning Monterey, window cleaning Salinas, window washing Monterey County, Carmel window cleaner, Pacific Grove window cleaning, screen cleaning, hard water removal">
+    <meta name="author" content="Happy Cypress Window Cleaners">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.happycypressco.com/">
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Window Cleaning in Monterey & Salinas | Happy Cypress">
+    <meta property="og:description" content="Family-owned, 5-star rated window cleaning across Monterey County. 100% satisfaction guaranteed. Get an instant quote online.">
+    <meta property="og:url" content="https://www.happycypressco.com/">
+    <meta property="og:image" content="https://www.happycypressco.com/images/logo.png">
+    <meta property="og:site_name" content="Happy Cypress Window Cleaners">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- Local Business structured data (helps Google show you in local search & maps) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Happy Cypress Window Cleaners",
+      "image": "https://www.happycypressco.com/images/logo.png",
+      "url": "https://www.happycypressco.com/",
+      "telephone": "+18312722846",
+      "email": "chad@happycypressco.com",
+      "priceRange": "$$",
+      "description": "Professional residential window cleaning serving Monterey County, California. Family-owned and operated with a 100% satisfaction guarantee.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "292 Paul Ave",
+        "addressLocality": "Salinas",
+        "addressRegion": "CA",
+        "postalCode": "93906",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Salinas" },
+        { "@type": "City", "name": "Monterey" },
+        { "@type": "City", "name": "Carmel" },
+        { "@type": "City", "name": "Pacific Grove" },
+        { "@type": "City", "name": "Marina" },
+        { "@type": "City", "name": "Seaside" }
+      ],
+      "founder": { "@type": "Person", "name": "Chad Gile" },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "55"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -71,116 +136,9 @@
             opacity: 0;
             transform: translateY(10px);
         }
-
-        /* Modal Styles */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.5); 
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-            position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .modal.show .modal-content {
-            transform: scale(1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-
-    <!-- Modal for Large Homes / French Panes -->
-    <div id="pre-qualify-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-600">
-                <i class="fas fa-home text-2xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Before we start...</h2>
-            <p class="text-gray-600 mb-6">Does your home meet any of these criteria?</p>
-            
-            <div class="text-left space-y-3 mb-8">
-                <label class="flex items-start gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
-                    <input type="checkbox" id="check-french-panes" class="mt-1 w-5 h-5 text-teal-600 rounded border-gray-300 focus:ring-teal-500">
-                    <div>
-                        <span class="font-bold text-gray-800 block">Majority French Panes (Grids)</span>
-                        <span class="text-xs text-gray-500">Windows with many small individual glass squares.</span>
-                    </div>
-                </label>
-                <label class="flex items-start gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
-                    <input type="checkbox" id="check-large-home" class="mt-1 w-5 h-5 text-teal-600 rounded border-gray-300 focus:ring-teal-500">
-                    <div>
-                        <span class="font-bold text-gray-800 block">Over 3,000 Sq. Ft. or 3+ Stories</span>
-                        <span class="text-xs text-gray-500">Large estates or complex high-access homes.</span>
-                    </div>
-                </label>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                <button onclick="handlePreQualify()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg">
-                    Continue
-                </button>
-            </div>
-            
-            <!-- Hidden redirect message -->
-            <div id="redirect-message" class="hidden mt-6 pt-6 border-t border-gray-100">
-                <p class="text-gray-700 font-semibold mb-4">
-                    For homes like yours, we recommend a 
-                    <span class="text-teal-600">free in-person estimate</span> to ensure accuracy.
-                </p>
-                <a href="https://book.housecallpro.com/book/Happy-Cypress-Service-Company/b54ef792d5c94668946558a8ede2921d?attribution=Website" target="_blank" class="block w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg text-center">
-                    Book In-Person Estimate
-                </a>
-                <button onclick="closeModal()" class="mt-3 text-sm text-gray-400 hover:text-gray-600 underline">
-                    Continue to Quote anyway
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
@@ -192,21 +150,32 @@
                         HAPPY CYPRESS
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#services" class="text-gray-600 hover:text-teal-600 font-semibold transition">Services</a>
                     <a href="#reviews" class="text-gray-600 hover:text-teal-600 font-semibold transition">Reviews</a>
                     <a href="#about" class="text-gray-600 hover:text-teal-600 font-semibold transition">About</a>
-                    <button onclick="openQuote()" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all">
+                    <a href="tel:+18312722846" class="text-teal-700 hover:text-teal-800 font-bold transition">
+                        <i class="fas fa-phone-alt mr-1"></i> (831) 272-2846
+                    </a>
+                    <a href="#quote" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all">
                         Get an Instant Quote
-                    </button>
+                    </a>
                 </div>
-                <!-- Mobile menu button placeholder -->
+                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-teal-600 focus:outline-none">
+                    <button id="mobile-menu-btn" aria-label="Open menu" class="text-gray-600 hover:text-teal-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+            <a href="#services" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">Services</a>
+            <a href="#reviews" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">Reviews</a>
+            <a href="#about" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">About</a>
+            <a href="tel:+18312722846" class="block text-teal-700 font-bold py-1"><i class="fas fa-phone-alt mr-1"></i> (831) 272-2846</a>
+            <a href="#quote" class="block bg-teal-600 hover:bg-teal-700 text-white text-center px-6 py-3 rounded-full font-bold">Get an Instant Quote</a>
         </div>
     </nav>
 
@@ -222,11 +191,11 @@
                 <span class="font-semibold text-white block mt-2">100% Satisfaction Guaranteed.</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openQuote()" class="bg-teal-500 hover:bg-teal-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all ring-4 ring-teal-500/30">
+                <a href="#quote" class="bg-teal-500 hover:bg-teal-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all ring-4 ring-teal-500/30">
                     Get an Instant Quote
-                </button>
-                <a href="tel:+18315550199" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all">
-                    <i class="fas fa-phone-alt mr-2 text-teal-600"></i> Call Now
+                </a>
+                <a href="tel:+18312722846" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all">
+                    <i class="fas fa-phone-alt mr-2 text-teal-600"></i> Call (831) 272-2846
                 </a>
             </div>
 
@@ -307,7 +276,7 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Review 1 -->
                 <div class="bg-teal-800 p-8 rounded-2xl relative">
                     <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
@@ -323,17 +292,32 @@
                     </div>
                 </div>
 
-                <!-- Review 2 (Placeholder based on vibe) -->
+                <!-- Review 2 -->
                 <div class="bg-teal-800 p-8 rounded-2xl relative">
                     <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
                     <p class="text-lg italic mb-6 relative z-10 pt-4">
-                        "Professional, on time, and meticulous. My ocean view looks brand new again. The track cleaning made a huge difference."
+                        "My windows and screens look like new. He was very professional, efficient and did a wonderful job. You will love your windows and screens. Really. I promise."
                     </p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold">S</div>
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold">G</div>
                         <div>
-                            <h4 class="font-bold">Sarah M.</h4>
-                            <p class="text-sm text-teal-300">Carmel Resident</p>
+                            <h4 class="font-bold">Google Review</h4>
+                            <p class="text-sm text-teal-300">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-teal-800 p-8 rounded-2xl relative">
+                    <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
+                    <p class="text-lg italic mb-6 relative z-10 pt-4">
+                        "Chad is professional, returns calls promptly and follows through on everything he says. My windows never looked so good! He did a superb job — very reasonable too!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-xl font-bold">G</div>
+                        <div>
+                            <h4 class="font-bold">Google Review</h4>
+                            <p class="text-sm text-teal-300">Verified Customer</p>
                         </div>
                     </div>
                 </div>
@@ -365,48 +349,29 @@
 
                 <!-- Screen 1: Contact Info -->
                 <div id="quote-screen-1" class="screen-transition space-y-6">
-                    <form id="contact-form" onsubmit="event.preventDefault(); validateContact();">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <!-- Name Split -->
-                            <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">First Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="cust-first-name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John" autocomplete="given-name">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Last Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="cust-last-name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="Doe" autocomplete="family-name">
-                            </div>
-
-                            <!-- Contact -->
-                            <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address <span class="text-red-500">*</span></label>
-                                <input type="email" id="cust-email" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com" autocomplete="email">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number <span class="text-red-500">*</span></label>
-                                <input type="tel" id="cust-phone" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199" autocomplete="tel">
-                            </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Full Name</label>
+                            <input type="text" id="cust-name" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="John Doe">
                         </div>
-
-                        <!-- Address Split -->
-                        <div class="space-y-2 pt-2">
-                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address <span class="text-red-500">*</span></label>
-                            <input type="text" id="cust-street" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition mb-2" placeholder="Street Address" autocomplete="address-line1">
-                            <div class="grid grid-cols-3 gap-2">
-                                <input type="text" id="cust-city" required class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="City" autocomplete="address-level2">
-                                <select id="cust-state" class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" autocomplete="address-level1">
-                                    <option value="CA" selected>CA</option>
-                                </select>
-                                <input type="text" id="cust-zip" required class="col-span-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 outline-none transition" placeholder="Zip" autocomplete="postal-code">
-                            </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Property Address</label>
+                            <input type="text" id="cust-address" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="123 Cypress Ave, Monterey CA">
                         </div>
-
-                        <div class="text-center pt-8">
-                            <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-lg min-w-[200px]">
-                                Next: Property Details
-                            </button>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number</label>
+                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 123-4567">
                         </div>
-                    </form>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address</label>
+                            <input type="email" id="cust-email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="text-center pt-8">
+                        <button onclick="nextScreen(2)" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-lg min-w-[200px]">
+                            Next: Property Details
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Screen 2: Property Details (Stories) -->
@@ -514,7 +479,7 @@
                         <!-- French Door -->
                         <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
                             <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
-                                <img src="images/vector_library/2026-02-08-french-door-v8-final.png" alt="French Door" class="max-h-full w-auto">
+                                <img src="images/vector_library/2026-02-08-french-door-v1.png" alt="French Door" class="max-h-full w-auto">
                             </div>
                             <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">French Door</h4>
                             <div class="flex flex-col gap-2 w-full">
@@ -524,7 +489,7 @@
                                     <button onclick="updateCounter('french-doors', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
                                 </div>
                                 <div class="relative">
-                                    <input type="number" id="french-panes-count" oninput="calculateQuote()" placeholder="Pane Count (8)" class="w-full text-center text-xs p-1 border rounded-lg focus:ring-1 focus:ring-teal-500 outline-none" min="0">
+                                    <input type="number" id="french-panes-count" oninput="calculateQuote()" placeholder="Pane Count" class="w-full text-center text-xs p-1 border rounded-lg focus:ring-1 focus:ring-teal-500 outline-none" min="0">
                                 </div>
                             </div>
                         </div>
@@ -539,19 +504,6 @@
                                 <button onclick="updateCounter('picture-windows', -1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">-</button>
                                 <span id="picture-windows-count" class="text-lg font-bold text-gray-900 flex-1 text-center">0</span>
                                 <button onclick="updateCounter('picture-windows', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
-                            </div>
-                        </div>
-
-                        <!-- Garden Window -->
-                        <div class="bg-white border-2 border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center hover:border-teal-500 transition-all group">
-                            <div class="h-24 sm:h-28 flex items-center justify-center mb-4">
-                                <img src="images/vector_library/2026-02-08-garden-window-v1.png" alt="Garden Window" class="max-h-full w-auto">
-                            </div>
-                            <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-3">Garden Window</h4>
-                            <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1 w-full">
-                                <button onclick="updateCounter('garden-windows', -1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">-</button>
-                                <span id="garden-windows-count" class="text-lg font-bold text-gray-900 flex-1 text-center">0</span>
-                                <button onclick="updateCounter('garden-windows', 1)" class="w-8 h-8 rounded-full font-bold text-gray-600 hover:bg-white hover:text-teal-600 transition shadow-sm">+</button>
                             </div>
                         </div>
                     </div>
@@ -598,6 +550,16 @@
                                 <span class="text-gray-500 text-sm">Vacuuming and detailing of all window tracks.</span>
                             </div>
                         </label>
+                        <label class="group flex items-center gap-4 p-5 border-2 border-red-50 rounded-2xl cursor-pointer hover:border-red-500 hover:bg-red-50 transition-all">
+                            <div class="w-6 h-6 rounded border-2 border-gray-300 group-hover:border-red-500 flex items-center justify-center transition-colors bg-white">
+                                <input id="has-french-panes" type="checkbox" class="hidden">
+                                <i class="fas fa-check text-xs text-red-600 opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-red-700 font-bold block">I have French Panes (Grids)</span>
+                                <span class="text-red-500 text-sm italic">Requires on-site estimate.</span>
+                            </div>
+                        </label>
                     </div>
 
                     <style>
@@ -625,22 +587,43 @@
                         <p class="text-gray-600 max-w-md mx-auto mb-8">
                             We've sent a copy of this estimate to your email. Chad will be in touch shortly to confirm details and schedule your cleaning!
                         </p>
-                        
-                        <!-- Show Work Button -->
-                        <button onclick="toggleWork()" class="text-sm text-gray-500 hover:text-teal-600 underline mb-6">
-                            Show Price Breakdown (Debug)
-                        </button>
-                        <div id="debug-work" class="hidden text-left bg-gray-50 p-4 rounded-xl text-xs font-mono text-gray-700 max-w-sm mx-auto mb-6 border border-gray-200">
-                            <!-- Populated by JS -->
+                    </div>
+                    <div id="french-pane-result" class="hidden">
+                        <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-info-circle text-4xl"></i>
                         </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Manual Quote Required</h2>
+                        <p class="text-gray-600 max-w-md mx-auto mb-8">
+                            Because you have French panes, we need to provide a custom, on-site estimate to ensure the most accurate pricing. We'll be in touch shortly!
+                        </p>
                     </div>
                     <button onclick="resetQuote()" class="text-teal-600 font-bold hover:underline">
                         <i class="fas fa-redo mr-2"></i> Start Over
                     </button>
                 </div>
 
-                <!-- Hidden form for submissions -->
-                <form id="submission-form" action="https://formspree.io/f/your_form_id" method="POST" class="hidden">
+                <!--
+                  ============================================================
+                  QUOTE SUBMISSION FORM
+                  ------------------------------------------------------------
+                  Quote requests are emailed to chad@happycypressco.com via
+                  Formspree (free, no server needed — works on Vercel).
+
+                  >>> ACTION REQUIRED before going live: <<<
+                  1. Go to https://formspree.io and sign up (free) using
+                     chad@happycypressco.com
+                  2. Create a new form. Formspree gives you an endpoint that
+                     looks like:  https://formspree.io/f/abcdwxyz
+                  3. Replace YOUR_FORM_ID below with that ID (the part after /f/).
+
+                  FUTURE — auto-create the customer in Housecall Pro:
+                  When you're ready, connect this Formspree form to Zapier
+                  (Formspree "New Submission" trigger -> Housecall Pro
+                  "Create Customer" action). No code change needed here; the
+                  field names below already map cleanly to HCP fields.
+                  ============================================================
+                -->
+                <form id="submission-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="hidden">
                     <input type="hidden" name="name" id="form-name">
                     <input type="hidden" name="email" id="form-email">
                     <input type="hidden" name="phone" id="form-phone">
@@ -648,6 +631,7 @@
                     <input type="hidden" name="stories" id="form-stories">
                     <input type="hidden" name="details" id="form-details">
                     <input type="hidden" name="total" id="form-total">
+                    <input type="hidden" name="_subject" value="New Quote Request — Happy Cypress Website">
                 </form>
 
             </div>
@@ -660,46 +644,8 @@
         let counts = {
             'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
             'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-            'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
+            'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
         };
-
-        // --- Modal & Flow Logic ---
-
-        function openQuote() {
-            // Scroll to section
-            document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
-            // Show modal first
-            setTimeout(() => {
-                const modal = document.getElementById('pre-qualify-modal');
-                modal.classList.add('show');
-            }, 500);
-        }
-
-        function closeModal() {
-            document.getElementById('pre-qualify-modal').classList.remove('show');
-        }
-
-        function handlePreQualify() {
-            const isFrench = document.getElementById('check-french-panes').checked;
-            const isLarge = document.getElementById('check-large-home').checked;
-
-            if (isFrench || isLarge) {
-                // Show redirect message inside modal
-                document.getElementById('redirect-message').classList.remove('hidden');
-                // Hide main continue button to force decision
-                document.querySelector('#pre-qualify-modal button[onclick="handlePreQualify()"]').classList.add('hidden');
-            } else {
-                // Good to go
-                closeModal();
-            }
-        }
-
-        function validateContact() {
-            // If valid (handled by browser 'required' attribs), go next
-            nextScreen(2);
-        }
-
-        // --- Existing Navigation Logic ---
 
         function nextScreen(num) {
             // Hide all screens immediately to prevent overlap/flashing
@@ -751,158 +697,67 @@
             calculateQuote();
         }
 
-        function toggleWork() {
-            const el = document.getElementById('debug-work');
-            el.classList.toggle('hidden');
-        }
-
         function calculateQuote() {
             let total = 0;
-            let workLog = [];
-            // Removed internal French pane check as it's now handled by modal pre-check
+            const hasFrenchPanes = document.getElementById('has-french-panes').checked;
+
+            if (hasFrenchPanes) {
+                estimatedTotal = -1;
+                document.getElementById('live-total').innerText = 'Manual Quote';
+                return;
+            }
 
             const addScreens = document.getElementById('add-screens').checked;
             const addTracks = document.getElementById('add-tracks').checked;
             
-            // --- WINDOWS ---
-            workLog.push("--- WINDOWS ---");
-            if (counts['sliders'] > 0) {
-                const sub = counts['sliders'] * 16;
-                total += sub;
-                workLog.push(`Slider: ${counts['sliders']} x $16 = $${sub}`);
-            }
-            if (counts['sliders-vertical'] > 0) {
-                const sub = counts['sliders-vertical'] * 16;
-                total += sub;
-                workLog.push(`Vert Slider: ${counts['sliders-vertical']} x $16 = $${sub}`);
-            }
-            if (counts['sliders-fixed'] > 0) {
-                const sub = counts['sliders-fixed'] * 25;
-                total += sub;
-                workLog.push(`3-Panel: ${counts['sliders-fixed']} x $25 = $${sub}`);
-            }
-            if (counts['sliding-doors'] > 0) {
-                const sub = counts['sliding-doors'] * 30;
-                total += sub;
-                workLog.push(`Slide Door: ${counts['sliding-doors']} x $30 = $${sub}`);
-            }
-            if (counts['sliding-doors-tri'] > 0) {
-                const sub = counts['sliding-doors-tri'] * 45;
-                total += sub;
-                workLog.push(`Tri Door: ${counts['sliding-doors-tri']} x $45 = $${sub}`);
-            }
-            if (counts['glass-doors'] > 0) {
-                const sub = counts['glass-doors'] * 10;
-                total += sub;
-                workLog.push(`Glass Door: ${counts['glass-doors']} x $10 = $${sub}`);
-            }
-            if (counts['picture-windows'] > 0) {
-                const sub = counts['picture-windows'] * 10;
-                total += sub;
-                workLog.push(`Picture: ${counts['picture-windows']} x $10 = $${sub}`);
-            }
-            if (counts['casement-windows'] > 0) {
-                const sub = counts['casement-windows'] * 12;
-                total += sub;
-                workLog.push(`Casement: ${counts['casement-windows']} x $12 = $${sub}`);
-            }
-            if (counts['garden-windows'] > 0) {
-                const sub = counts['garden-windows'] * 35;
-                total += sub;
-                workLog.push(`Garden: ${counts['garden-windows']} x $35 = $${sub}`);
-            }
-            if (counts['french-doors'] > 0) {
-                const frenchPaneInput = document.getElementById('french-panes-count').value;
-                const panes = frenchPaneInput === '' ? 8 : (parseInt(frenchPaneInput) || 0);
-                const sub = counts['french-doors'] * (panes * 2.25);
-                total += sub;
-                workLog.push(`French Door: ${counts['french-doors']} x (${panes} panes x $2.25) = $${sub.toFixed(2)}`);
-            }
-
-            // --- LADDER FEE ---
             const totalWindows = Object.values(counts).reduce((a, b) => a + b, 0);
+
+            // Base prices
+            total += counts['sliders'] * 16;
+            total += counts['sliders-vertical'] * 16;
+            total += counts['sliders-fixed'] * 25;
+            total += counts['sliding-doors'] * 30;
+            total += counts['sliding-doors-tri'] * 45;
+            total += counts['glass-doors'] * 10;
+            const frenchPaneCount = parseInt(document.getElementById('french-panes-count').value) || 0;
+            total += counts['french-doors'] * (frenchPaneCount * 2.25);
+            total += counts['picture-windows'] * 10;
+            total += counts['casement-windows'] * 12;
+
+            // Ladder Fee (based on stories)
             if (selectedStories >= 2) {
-                let fee = 0;
-                if (selectedStories === 2) {
-                    fee = Math.floor(totalWindows / 2) * 5;
-                    workLog.push(`2-Story Fee: ~${Math.floor(totalWindows/2)} windows x $5 = $${fee}`);
-                }
-                if (selectedStories === 3) {
-                    fee = (Math.floor(totalWindows / 2) * 5) + (totalWindows * 2);
-                    workLog.push(`3-Story Fee: (2-Story base $${Math.floor(totalWindows/2)*5}) + (High work $${totalWindows*2}) = $${fee}`);
-                }
-                total += fee;
+                total += Math.floor(totalWindows / 2) * 5;
+            }
+            if (selectedStories === 3) {
+                total += totalWindows * 2; // Extra for 3rd story
             }
 
-            // --- ADD-ONS ---
+            // Add-ons
             if (addScreens) {
-                workLog.push("--- SCREENS ($6 ea) ---");
-                // Standard screens (1 per window)
-                let singleScreenCount = counts['sliders'] + counts['sliders-vertical'] + counts['casement-windows'];
-                // 3-Panel screens (2 per window)
-                let doubleScreenCount = counts['sliders-fixed'] * 2;
-                
-                let totalStandardScreens = singleScreenCount + doubleScreenCount;
-                let screenCost = totalStandardScreens * 6;
-                
-                // Garden screens (2 per window)
-                let gardenScreens = counts['garden-windows'] * 2;
-                let gardenScreenCost = gardenScreens * 6;
-
-                if (totalStandardScreens > 0) workLog.push(`Standard: ${totalStandardScreens} x $6 = $${screenCost}`);
-                if (gardenScreens > 0) workLog.push(`Garden: ${gardenScreens} x $6 = $${gardenScreenCost}`);
-                
-                total += screenCost + gardenScreenCost;
+                total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 6;
             }
-
             if (addTracks) {
-                workLog.push("--- TRACKS ---");
-                // Standard tracks ($8) - 3-Panel counts as 2
-                let singleTrackCount = counts['sliders'] + counts['sliders-vertical'] + counts['casement-windows'];
-                let doubleTrackCount = counts['sliders-fixed'] * 2;
-                
-                let totalStandardTracks = singleTrackCount + doubleTrackCount;
-                let trackCost = totalStandardTracks * 8;
-                
-                // Door tracks ($10)
-                let doorTrackCount = counts['sliding-doors'] + counts['sliding-doors-tri'];
-                let doorTrackCost = doorTrackCount * 10;
-
-                // Garden tracks (1 per window, $8 ea)
-                let gardenTracks = counts['garden-windows'] * 1;
-                let gardenTrackCost = gardenTracks * 8;
-
-                if (totalStandardTracks > 0) workLog.push(`Standard: ${totalStandardTracks} x $8 = $${trackCost}`);
-                if (doorTrackCount > 0) workLog.push(`Doors: ${doorTrackCount} x $10 = $${doorTrackCost}`);
-                if (gardenTracks > 0) workLog.push(`Garden: ${gardenTracks} x $8 = $${gardenTrackCost}`);
-
-                total += trackCost + doorTrackCost + gardenTrackCost;
+                total += (counts['sliders'] + counts['sliders-vertical'] + counts['sliders-fixed'] + counts['casement-windows']) * 8;
+                total += (counts['sliding-doors'] + counts['sliding-doors-tri']) * 10;
             }
 
             // Apply minimum
             if (total > 0 && total < 250) {
-                workLog.push(`--- MINIMUM ---`);
-                workLog.push(`Subtotal: $${total}`);
-                workLog.push(`Minimum Adjustment: +$${250 - total}`);
                 total = 250;
             }
             
             estimatedTotal = Math.round(total);
             document.getElementById('live-total').innerText = total === 0 ? '$0' : `$${estimatedTotal}`;
-            document.getElementById('debug-work').innerHTML = workLog.join('<br>');
         }
 
         function showFinalStep() {
             calculateQuote();
             
-            // Fill hidden form (Legacy/Backup)
-            const fullName = `${document.getElementById('cust-first-name').value} ${document.getElementById('cust-last-name').value}`.trim();
-            const fullAddress = `${document.getElementById('cust-street').value}, ${document.getElementById('cust-city').value}, ${document.getElementById('cust-state').value} ${document.getElementById('cust-zip').value}`.trim();
-            
-            document.getElementById('form-name').value = fullName;
+            // Fill hidden form
+            document.getElementById('form-name').value = document.getElementById('cust-name').value;
             document.getElementById('form-email').value = document.getElementById('cust-email').value;
             document.getElementById('form-phone').value = document.getElementById('cust-phone').value;
-            document.getElementById('form-address').value = fullAddress;
+            document.getElementById('form-address').value = document.getElementById('cust-address').value;
             document.getElementById('form-stories').value = selectedStories;
             
             const details = `
@@ -914,42 +769,205 @@
                 Glass Doors: ${counts['glass-doors']}
                 French Doors: ${counts['french-doors']} (Panes: ${document.getElementById('french-panes-count').value})
                 Picture Windows: ${counts['picture-windows']}
-                Garden Windows: ${counts['garden-windows']}
                 Casement Windows: ${counts['casement-windows']}
                 ---
                 Screens Washed: ${document.getElementById('add-screens').checked}
                 Tracks Cleaned: ${document.getElementById('add-tracks').checked}
             `.trim().replace(/^ +/gm, '');
-            
             document.getElementById('form-details').value = details;
-            document.getElementById('form-total').value = estimatedTotal;
+            document.getElementById('form-total').value = estimatedTotal === -1 ? 'French Panes (Manual)' : `$${estimatedTotal}`;
 
-            // Submit logic handled later by Zapier integration
+            // Hide UI steps
+            document.getElementById('quote-screen-4').style.display = 'none';
+            const dot4 = document.getElementById('step-dot-4');
+            if (dot4) dot4.classList.add('completed');
             
-            nextScreen('final');
+            const finalScreen = document.getElementById('quote-screen-final');
+            finalScreen.style.display = 'block';
+            setTimeout(() => finalScreen.classList.remove('hidden-screen'), 10);
+
+            if (estimatedTotal === -1) {
+                document.getElementById('price-result').classList.add('hidden');
+                document.getElementById('french-pane-result').classList.remove('hidden');
+            } else {
+                document.getElementById('price-result').classList.remove('hidden');
+                document.getElementById('french-pane-result').classList.add('hidden');
+                document.getElementById('estimated-total').innerText = `$${estimatedTotal}`;
+            }
+
+            // Submit form
+            const form = document.getElementById('submission-form');
+            const data = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).catch(e => console.error("Submit error", e));
         }
 
         function resetQuote() {
-            // Reset state
-            selectedStories = 0;
-            estimatedTotal = 0;
             counts = {
                 'sliders': 0, 'sliders-vertical': 0, 'sliders-fixed': 0,
                 'sliding-doors': 0, 'sliding-doors-tri': 0, 'glass-doors': 0, 
-                'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0, 'garden-windows': 0
+                'french-doors': 0, 'picture-windows': 0, 'casement-windows': 0
             };
-            
-            // Reset inputs
-            document.getElementById('contact-form').reset();
+            Object.keys(counts).forEach(k => {
+                const el = document.getElementById(`${k}-count`);
+                if (el) el.innerText = 0;
+            });
+            document.getElementById('french-panes-count').value = '';
             document.getElementById('add-screens').checked = false;
             document.getElementById('add-tracks').checked = false;
-            document.querySelectorAll('[id$="-count"]').forEach(el => el.innerText = '0');
-            document.querySelectorAll('.story-btn').forEach(btn => {
-                btn.classList.remove('border-teal-500', 'bg-teal-50');
-            });
-
+            document.getElementById('has-french-panes').checked = false;
+            selectedStories = 0;
+            document.querySelectorAll('.story-btn').forEach(btn => btn.classList.remove('border-teal-500', 'bg-teal-50'));
+            const btnNext2 = document.getElementById('btn-next-2');
+            if (btnNext2) btnNext2.disabled = true;
+            document.getElementById('live-total').innerText = '$0';
             nextScreen(1);
         }
+
+        // Chatbot Functionality
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWindow = document.getElementById('chat-window');
+        const chatClose = document.getElementById('chat-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        if (chatToggle) {
+            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
+            chatClose.onclick = () => chatWindow.classList.add('hidden');
+
+            chatForm.onsubmit = (e) => {
+                e.preventDefault();
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, 'user');
+                chatInput.value = '';
+
+                // Reply runs entirely in the browser — no server needed.
+                const reply = getBotReply(text);
+                setTimeout(() => addMessage(reply, 'bot'), 400);
+            };
+        }
+
+        // In-browser FAQ assistant (replaces the old server.js backend).
+        // To add or edit answers, just update this list.
+        const FAQ = [
+            { keywords: ['price', 'cost', 'quote', 'estimate', 'how much'], response: "You can get an instant estimate using our quote calculator on this page! Most jobs range from $250 to $600 depending on the size of your home." },
+            { keywords: ['service', 'clean', 'window', 'do you', 'offer'], response: "We offer professional window cleaning, track deep cleaning, screen washing, and hard water removal for homes across Monterey County." },
+            { keywords: ['where', 'area', 'location', 'monterey', 'salinas', 'carmel', 'serve'], response: "We proudly serve all of Monterey County, including Salinas, Monterey, Carmel, Marina, Seaside, and Pacific Grove." },
+            { keywords: ['who', 'chad', 'owner'], response: "Happy Cypress is owned and operated by Chad Gile. He personally ensures every job meets our 5-star standards." },
+            { keywords: ['schedule', 'book', 'appointment', 'when', 'available'], response: "Once you submit a quote request, Chad will reach out within 24 hours to schedule a time that works for you." },
+            { keywords: ['phone', 'call', 'number', 'contact'], response: "You can reach Chad directly at (831) 272-2846, or submit a quote request and he'll call you back." },
+            { keywords: ['hour', 'open', 'time'], response: "We're open Monday through Friday, 8:00 AM to 6:00 PM." },
+            { keywords: ['hi', 'hello', 'hey'], response: "Hello! I'm the Happy Cypress assistant. How can I help you with your window cleaning today?" }
+        ];
+
+        function getBotReply(message) {
+            const lowerMsg = message.toLowerCase();
+            for (const item of FAQ) {
+                if (item.keywords.some(k => lowerMsg.includes(k))) {
+                    return item.response;
+                }
+            }
+            return "Great question! The best way to get an answer is to call Chad at (831) 272-2846 or submit a quote request and he'll get right back to you.";
+        }
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = sender === 'user' 
+                ? "bg-blue-600 text-white p-2 rounded-lg rounded-tr-none text-sm max-w-[80%] ml-auto"
+                : "bg-teal-100 text-teal-900 p-2 rounded-lg rounded-tl-none text-sm max-w-[80%]";
+            div.innerText = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn) {
+            mobileBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+            // Close the menu after tapping any link inside it
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.onclick = () => mobileMenu.classList.add('hidden');
+            });
+        }
     </script>
+    
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 text-center">
+                    <img src="images/chad-headshot.jpg" alt="Chad Gile, Owner" class="rounded-full w-48 h-48 mx-auto shadow-2xl border-4 border-white">
+                    <h3 class="text-2xl font-bold mt-6 text-gray-900">Chad Gile</h3>
+                    <p class="text-gray-500 font-semibold">Owner, Happy Cypress</p>
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Your Home is My Reputation.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        At Happy Cypress, you're not dealing with a faceless corporation. I'm Chad, the owner and operator. When you call, you get me. When I arrive at your home, you get my full attention and commitment to quality.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        I started this business because I love seeing the instant transformation that clean windows bring to a home. I take immense pride in my craft and stand behind every single job with a 100% satisfaction guarantee. That's a promise from me to you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="brand-font text-2xl font-bold tracking-tight mb-4">
+                <img src="images/logo.png" class="h-16 w-auto mx-auto mb-4" alt="Happy Cypress Logo">
+                HAPPY CYPRESS
+            </div>
+            <p class="text-gray-400 mb-6">Proudly serving Salinas, Monterey, Carmel, Pacific Grove, Marina, Seaside, and all of Monterey County.</p>
+
+            <!-- Contact details (good for customers and local SEO) -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 mb-8 text-gray-300">
+                <a href="tel:+18312722846" class="hover:text-teal-400 transition"><i class="fas fa-phone-alt mr-2 text-teal-400"></i>(831) 272-2846</a>
+                <a href="mailto:chad@happycypressco.com" class="hover:text-teal-400 transition"><i class="fas fa-envelope mr-2 text-teal-400"></i>chad@happycypressco.com</a>
+                <span><i class="fas fa-clock mr-2 text-teal-400"></i>Mon–Fri, 8am–6pm</span>
+            </div>
+
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.yelp.com/biz/happy-cypress-window-cleaners-salinas-2" aria-label="Yelp" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-yelp"></i></a>
+                <a href="https://www.google.com/search?q=Happy+Cypress+Window+Cleaners+Salinas" aria-label="Google" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-google"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 Happy Cypress Window Cleaners. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot UI -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-[100]">
+        <button id="chat-toggle" class="bg-teal-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-teal-700 transition-all transform hover:scale-110">
+            <i class="fas fa-comments text-2xl"></i>
+        </button>
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col">
+            <div class="bg-teal-600 p-4 text-white font-bold flex justify-between items-center">
+                <span>Happy Cypress Chat</span>
+                <button id="chat-close" class="text-teal-200 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3 bg-gray-50">
+                <div class="bg-teal-100 text-teal-900 p-2 rounded-lg rounded-tl-none text-sm max-w-[80%]">
+                    Hi! Have a question about our window cleaning services? Ask away!
+                </div>
+            </div>
+            <div class="p-4 border-t">
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="chat-input" class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-teal-500" placeholder="Type a message...">
+                    <button type="submit" class="bg-teal-600 text-white p-2 rounded-lg hover:bg-teal-700"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
