@@ -3,7 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Cypress Window Cleaning | Monterey & Salinas</title>
+
+    <!-- Primary SEO -->
+    <title>Window Cleaning in Monterey & Salinas | Happy Cypress Window Cleaners</title>
+    <meta name="description" content="Professional residential window cleaning in Monterey County, CA. Family-owned, 5-star rated, 100% satisfaction guaranteed. Serving Salinas, Monterey, Carmel, Pacific Grove & Marina. Get an instant quote.">
+    <meta name="keywords" content="window cleaning Monterey, window cleaning Salinas, window washing Monterey County, Carmel window cleaner, Pacific Grove window cleaning, screen cleaning, hard water removal">
+    <meta name="author" content="Happy Cypress Window Cleaners">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.happycypressco.com/">
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Window Cleaning in Monterey & Salinas | Happy Cypress">
+    <meta property="og:description" content="Family-owned, 5-star rated window cleaning across Monterey County. 100% satisfaction guaranteed. Get an instant quote online.">
+    <meta property="og:url" content="https://www.happycypressco.com/">
+    <meta property="og:image" content="https://www.happycypressco.com/images/logo.png">
+    <meta property="og:site_name" content="Happy Cypress Window Cleaners">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- Local Business structured data (helps Google show you in local search & maps) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Happy Cypress Window Cleaners",
+      "image": "https://www.happycypressco.com/images/logo.png",
+      "url": "https://www.happycypressco.com/",
+      "telephone": "+18312722846",
+      "email": "chad@happycypressco.com",
+      "priceRange": "$$",
+      "description": "Professional residential window cleaning serving Monterey County, California. Family-owned and operated with a 100% satisfaction guarantee.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "292 Paul Ave",
+        "addressLocality": "Salinas",
+        "addressRegion": "CA",
+        "postalCode": "93906",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Salinas" },
+        { "@type": "City", "name": "Monterey" },
+        { "@type": "City", "name": "Carmel" },
+        { "@type": "City", "name": "Pacific Grove" },
+        { "@type": "City", "name": "Marina" },
+        { "@type": "City", "name": "Seaside" }
+      ],
+      "founder": { "@type": "Person", "name": "Chad Gile" },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "55"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -85,21 +150,32 @@
                         HAPPY CYPRESS
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#services" class="text-gray-600 hover:text-teal-600 font-semibold transition">Services</a>
                     <a href="#reviews" class="text-gray-600 hover:text-teal-600 font-semibold transition">Reviews</a>
                     <a href="#about" class="text-gray-600 hover:text-teal-600 font-semibold transition">About</a>
+                    <a href="tel:+18312722846" class="text-teal-700 hover:text-teal-800 font-bold transition">
+                        <i class="fas fa-phone-alt mr-1"></i> (831) 272-2846
+                    </a>
                     <a href="#quote" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full font-bold shadow-lg transform hover:scale-105 transition-all">
                         Get an Instant Quote
                     </a>
                 </div>
-                <!-- Mobile menu button placeholder -->
+                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-teal-600 focus:outline-none">
+                    <button id="mobile-menu-btn" aria-label="Open menu" class="text-gray-600 hover:text-teal-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+            <a href="#services" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">Services</a>
+            <a href="#reviews" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">Reviews</a>
+            <a href="#about" class="block text-gray-700 hover:text-teal-600 font-semibold py-1">About</a>
+            <a href="tel:+18312722846" class="block text-teal-700 font-bold py-1"><i class="fas fa-phone-alt mr-1"></i> (831) 272-2846</a>
+            <a href="#quote" class="block bg-teal-600 hover:bg-teal-700 text-white text-center px-6 py-3 rounded-full font-bold">Get an Instant Quote</a>
         </div>
     </nav>
 
@@ -118,8 +194,8 @@
                 <a href="#quote" class="bg-teal-500 hover:bg-teal-600 text-white text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all ring-4 ring-teal-500/30">
                     Get an Instant Quote
                 </a>
-                <a href="tel:+18315550199" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all">
-                    <i class="fas fa-phone-alt mr-2 text-teal-600"></i> Call Now
+                <a href="tel:+18312722846" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold shadow-xl transform hover:-translate-y-1 transition-all">
+                    <i class="fas fa-phone-alt mr-2 text-teal-600"></i> Call (831) 272-2846
                 </a>
             </div>
 
@@ -200,7 +276,7 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Review 1 -->
                 <div class="bg-teal-800 p-8 rounded-2xl relative">
                     <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
@@ -216,17 +292,32 @@
                     </div>
                 </div>
 
-                <!-- Review 2 (Placeholder based on vibe) -->
+                <!-- Review 2 -->
                 <div class="bg-teal-800 p-8 rounded-2xl relative">
                     <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
                     <p class="text-lg italic mb-6 relative z-10 pt-4">
-                        "Professional, on time, and meticulous. My ocean view looks brand new again. The track cleaning made a huge difference."
+                        "My windows and screens look like new. He was very professional, efficient and did a wonderful job. You will love your windows and screens. Really. I promise."
                     </p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold">S</div>
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold">G</div>
                         <div>
-                            <h4 class="font-bold">Sarah M.</h4>
-                            <p class="text-sm text-teal-300">Carmel Resident</p>
+                            <h4 class="font-bold">Google Review</h4>
+                            <p class="text-sm text-teal-300">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-teal-800 p-8 rounded-2xl relative">
+                    <i class="fas fa-quote-left text-4xl text-teal-600 absolute top-6 left-6 opacity-50"></i>
+                    <p class="text-lg italic mb-6 relative z-10 pt-4">
+                        "Chad is professional, returns calls promptly and follows through on everything he says. My windows never looked so good! He did a superb job — very reasonable too!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-xl font-bold">G</div>
+                        <div>
+                            <h4 class="font-bold">Google Review</h4>
+                            <p class="text-sm text-teal-300">Verified Customer</p>
                         </div>
                     </div>
                 </div>
@@ -269,7 +360,7 @@
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Phone Number</label>
-                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 555-0199">
+                            <input type="tel" id="cust-phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 outline-none transition" placeholder="(831) 123-4567">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Email Address</label>
@@ -511,8 +602,28 @@
                     </button>
                 </div>
 
-                <!-- Hidden form for submissions -->
-                <form id="submission-form" action="https://formspree.io/f/your_form_id" method="POST" class="hidden">
+                <!--
+                  ============================================================
+                  QUOTE SUBMISSION FORM
+                  ------------------------------------------------------------
+                  Quote requests are emailed to chad@happycypressco.com via
+                  Formspree (free, no server needed — works on Vercel).
+
+                  >>> ACTION REQUIRED before going live: <<<
+                  1. Go to https://formspree.io and sign up (free) using
+                     chad@happycypressco.com
+                  2. Create a new form. Formspree gives you an endpoint that
+                     looks like:  https://formspree.io/f/abcdwxyz
+                  3. Replace YOUR_FORM_ID below with that ID (the part after /f/).
+
+                  FUTURE — auto-create the customer in Housecall Pro:
+                  When you're ready, connect this Formspree form to Zapier
+                  (Formspree "New Submission" trigger -> Housecall Pro
+                  "Create Customer" action). No code change needed here; the
+                  field names below already map cleanly to HCP fields.
+                  ============================================================
+                -->
+                <form id="submission-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="hidden">
                     <input type="hidden" name="name" id="form-name">
                     <input type="hidden" name="email" id="form-email">
                     <input type="hidden" name="phone" id="form-phone">
@@ -520,6 +631,7 @@
                     <input type="hidden" name="stories" id="form-stories">
                     <input type="hidden" name="details" id="form-details">
                     <input type="hidden" name="total" id="form-total">
+                    <input type="hidden" name="_subject" value="New Quote Request — Happy Cypress Website">
                 </form>
 
             </div>
@@ -727,7 +839,7 @@
             chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
             chatClose.onclick = () => chatWindow.classList.add('hidden');
 
-            chatForm.onsubmit = async (e) => {
+            chatForm.onsubmit = (e) => {
                 e.preventDefault();
                 const text = chatInput.value.trim();
                 if (!text) return;
@@ -735,18 +847,33 @@
                 addMessage(text, 'user');
                 chatInput.value = '';
 
-                try {
-                    const response = await fetch('/api/chat', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: text })
-                    });
-                    const data = await response.json();
-                    addMessage(data.reply, 'bot');
-                } catch (err) {
-                    addMessage("Sorry, I'm having trouble connecting. Please call us!", 'bot');
-                }
+                // Reply runs entirely in the browser — no server needed.
+                const reply = getBotReply(text);
+                setTimeout(() => addMessage(reply, 'bot'), 400);
             };
+        }
+
+        // In-browser FAQ assistant (replaces the old server.js backend).
+        // To add or edit answers, just update this list.
+        const FAQ = [
+            { keywords: ['price', 'cost', 'quote', 'estimate', 'how much'], response: "You can get an instant estimate using our quote calculator on this page! Most jobs range from $250 to $600 depending on the size of your home." },
+            { keywords: ['service', 'clean', 'window', 'do you', 'offer'], response: "We offer professional window cleaning, track deep cleaning, screen washing, and hard water removal for homes across Monterey County." },
+            { keywords: ['where', 'area', 'location', 'monterey', 'salinas', 'carmel', 'serve'], response: "We proudly serve all of Monterey County, including Salinas, Monterey, Carmel, Marina, Seaside, and Pacific Grove." },
+            { keywords: ['who', 'chad', 'owner'], response: "Happy Cypress is owned and operated by Chad Gile. He personally ensures every job meets our 5-star standards." },
+            { keywords: ['schedule', 'book', 'appointment', 'when', 'available'], response: "Once you submit a quote request, Chad will reach out within 24 hours to schedule a time that works for you." },
+            { keywords: ['phone', 'call', 'number', 'contact'], response: "You can reach Chad directly at (831) 272-2846, or submit a quote request and he'll call you back." },
+            { keywords: ['hour', 'open', 'time'], response: "We're open Monday through Friday, 8:00 AM to 6:00 PM." },
+            { keywords: ['hi', 'hello', 'hey'], response: "Hello! I'm the Happy Cypress assistant. How can I help you with your window cleaning today?" }
+        ];
+
+        function getBotReply(message) {
+            const lowerMsg = message.toLowerCase();
+            for (const item of FAQ) {
+                if (item.keywords.some(k => lowerMsg.includes(k))) {
+                    return item.response;
+                }
+            }
+            return "Great question! The best way to get an answer is to call Chad at (831) 272-2846 or submit a quote request and he'll get right back to you.";
         }
 
         function addMessage(text, sender) {
@@ -757,6 +884,17 @@
             div.innerText = text;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn) {
+            mobileBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+            // Close the menu after tapping any link inside it
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.onclick = () => mobileMenu.classList.add('hidden');
+            });
         }
     </script>
     
@@ -790,12 +928,20 @@
                 <img src="images/logo.png" class="h-16 w-auto mx-auto mb-4" alt="Happy Cypress Logo">
                 HAPPY CYPRESS
             </div>
-            <p class="text-gray-400 mb-6">Proudly serving Salinas, Monterey, and all of Monterey County.</p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="https://www.yelp.com/biz/happy-cypress-window-cleaning-marina" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-yelp"></i></a>
-                <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-google"></i></a>
+            <p class="text-gray-400 mb-6">Proudly serving Salinas, Monterey, Carmel, Pacific Grove, Marina, Seaside, and all of Monterey County.</p>
+
+            <!-- Contact details (good for customers and local SEO) -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8 mb-8 text-gray-300">
+                <a href="tel:+18312722846" class="hover:text-teal-400 transition"><i class="fas fa-phone-alt mr-2 text-teal-400"></i>(831) 272-2846</a>
+                <a href="mailto:chad@happycypressco.com" class="hover:text-teal-400 transition"><i class="fas fa-envelope mr-2 text-teal-400"></i>chad@happycypressco.com</a>
+                <span><i class="fas fa-clock mr-2 text-teal-400"></i>Mon–Fri, 8am–6pm</span>
             </div>
-            <p class="text-gray-500 text-sm">&copy; 2025 Happy Cypress Window Cleaning. All Rights Reserved.</p>
+
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.yelp.com/biz/happy-cypress-window-cleaners-salinas-2" aria-label="Yelp" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-yelp"></i></a>
+                <a href="https://www.google.com/search?q=Happy+Cypress+Window+Cleaners+Salinas" aria-label="Google" class="text-gray-400 hover:text-teal-400 text-2xl transition"><i class="fab fa-google"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 Happy Cypress Window Cleaners. All Rights Reserved.</p>
         </div>
     </footer>
 
